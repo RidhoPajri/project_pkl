@@ -262,7 +262,169 @@
             <!-- process end -->
 
             {{-- artikel --}}
-            
+            <style>
+                .card {
+                    border-radius: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s, box-shadow 0.3s;
+                    display: flex;
+                    flex-direction: column;
+                }
+        
+                .card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 8px 16px rgba();
+                }
+        
+                .card img {
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                    height: 200px;
+                    object-fit: cover;
+                }
+        
+                .card body {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 20px;
+                }
+        
+                .section {
+                    padding: 60px 0;
+                }
+        
+                .card title {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: #333;
+                }
+        
+                .card text {
+                    font-size: 1.5rem;
+                    color: #666;
+                }
+        
+                .btn-primary {
+                    background-color: #007bff;
+                    border-color: #007bff;
+                    transition: background-color 0.3s, border-color 0.3s;
+                }
+        
+                .btn-primary:hover {
+                    background-color: #0056b3;
+                    border-color: #004085;
+                }
+        
+                .navbar {
+                    margin-bottom: 20px;
+                }
+        
+                footer {
+                    background-color: #333;
+                    /* Warna latar belakang footer */
+                    color: #f9f9f9;
+                    /* Warna teks footer */
+                    padding: 20px 0;
+                    /* Padding atas dan bawah */
+                }
+        
+                footer p {
+                    margin-bottom: 0;
+                    /* Menghilangkan margin bawah untuk paragraf dalam footer */
+                }
+        
+                /* CSS */
+                .topnav {
+                    background-color: #333;
+                    overflow: hidden;
+                }
+        
+                .topnav a {
+                    float: left;
+                    color: #f2f2f2;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    font-size: 17px;
+                }
+        
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+        
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+        
+                .dropdown {
+                    float: left;
+                    overflow: hidden;
+                }
+        
+                .dropdown .dropbtn {
+                    font-size: 17px;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    padding: 14px 16px;
+                    background-color: inherit;
+                    font-family: inherit;
+                    margin: 0;
+                }
+        
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                    z-index: 1;
+                }
+        
+                .dropdown-content a {
+                    float: none;
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: left;
+                }
+        
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+        
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+        
+                .dropdown:hover .dropbtn {
+                    background-color: #3e8e41;
+                }
+            </style>
+            <div class="container">
+                <div class="crm-title text-center mb-60">
+                    <h2 class="crm-title__heading">Artikel <br></h2>
+                </div>
+                    <div class="row">
+                        @foreach ( $artikel as $item)
+                        <div class="col-4">
+                            <div class="card " style="width: 20rem;">
+                                {{-- <img src="{{asset ('/storage/artikels/' . $item->image )}}"> --}}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$item ->judul_artikel}}</h5>
+                                    <p class="card-title">{{$item ->deskripsi}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
 
             {{-- end --}}
 

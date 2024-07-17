@@ -5,6 +5,7 @@ use App\Http\Controllers\CatatanController;
 use App\Http\Controllers\PengingatController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Artikel;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('artikel', App\Http\Controllers\ArtikelController::class)->middleware('auth');
 
 // Rute untuk admin dengan prefix 'admin'
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
@@ -46,3 +48,10 @@ Route::middleware(['auth', 'isUser'])->prefix('user')->group(function () {
     Route::resource('catatan', CatatanController::class);
     Route::resource('pengingat', PengingatController::class);
 });
+
+Route::get('/', function () {
+    $artikel = Artikel::all();
+    return view('welcome', compact('artikel'));
+});
+
+
